@@ -57,8 +57,9 @@ PRODUCT_PACKAGES += \
 
 # RIL & GPS fix
 PRODUCT_PACKAGES += \
-    ril-wrapper \
-    libdmitry
+    libdmitry \
+    libsecril-client \
+    libsecril-client-sap \
 
 # Sensors
 PRODUCT_PACKAGES += \
