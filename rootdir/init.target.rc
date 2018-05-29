@@ -36,28 +36,7 @@ on init
     chown system system /sys/devices/system/cpu/cpufreq/pegasusq/max_cpu_lock
     chown system system /sys/devices/system/cpu/cpufreq/pegasusq/sampling_rate
 
-on boot
-    # Flash storage isn't a good entropy source, and only causes
-    # locking overhead in the kernel. Turn it off.
-    write /sys/block/mmcblk0/queue/add_random 0
-    write /sys/block/mmcblk1/queue/add_random 0
-
-    # KSM
-    write /sys/kernel/mm/ksm/deferred_timer 1
-    write /sys/kernel/mm/ksm/pages_to_scan 100
-    write /sys/kernel/mm/ksm/sleep_millisecs 500
-    write /sys/kernel/mm/ksm/run 0
-
-    # Swapping 1 page at a time is ok
-    write /proc/sys/vm/page-cluster 0
-
-    write /proc/sys/vm/swappiness 100
-
-    # increase read-ahead value to 256 kb
-    write /sys/block/mmcblk0/queue/read_ahead_kb 256
-
 on post-fs-data
-
 # icd
     exec icd_check
     chown system system /dev/icd
@@ -89,7 +68,7 @@ on post-fs-data
 
 on boot
 # cbd
-service cpboot-daemon /system/bin/cbd -d
+service cpboot-daemon /system/bin/cbd -d -p10
     class main
     user root
     group radio cache inet misc audio sdcard_rw log
@@ -102,4 +81,25 @@ service gps-daemon /system/bin/sh /system/bin/gps_daemon.sh
     user gps
     group system inet sdcard_rw gps
     ioprio be 0
+
+on boot
+    # Flash storage isn't a good entropy source, and only causes
+    # locking overhead in the kernel. Turn it off.
+    write /sys/block/mmcblk0/queue/add_random 0
+    write /sys/block/mmcblk1/queue/add_random 0
+
+    # KSM
+    write /sys/kernel/mm/ksm/deferred_timer 1
+    write /sys/kernel/mm/ksm/pages_to_scan 100
+    write /sys/kernel/mm/ksm/sleep_millisecs 500
+    write /sys/kernel/mm/ksm/run 0
+
+    # Swapping 1 page at a time is ok
+    write /proc/sys/vm/page-cluster 0
+
+    write /proc/sys/vm/swappiness 100
+
+    # increase read-ahead value to 256 kb
+    write /sys/block/mmcblk0/queue/read_ahead_kb 256
+
 

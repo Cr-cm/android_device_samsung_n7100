@@ -82,6 +82,13 @@
     extern void _ZN7android13SensorManager16createEventQueueENS_7String8Ei(void **retVal, void *sensorMgr, void **str8P, int mode);
 
 
+//Moar hax
+    ssize_t _ZN7android13SensorManager13getSensorListEPPKPKNS_6SensorE(void* thiz, void* list);
+
+    ssize_t _ZNK7android13SensorManager13getSensorListEPPKPKNS_6SensorE(void* thiz, void* list) {
+        return _ZN7android13SensorManager13getSensorListEPPKPKNS_6SensorE(thiz, list);
+    }
+
 //data exports we must provide for gps library to be happy
 
     /*
