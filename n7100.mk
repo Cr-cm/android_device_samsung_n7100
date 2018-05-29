@@ -39,6 +39,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     camera.smdk4x12
 
+# Power
+PRODUCT_PACKAGES += \
+    power.smdk4x12
+
 # f2fs
 PRODUCT_PACKAGES += \
     fibmap.f2fs \
@@ -55,11 +59,21 @@ PRODUCT_PACKAGES += \
     DeviceSettings \
     SamsungServiceMode
 
-# RIL & GPS fix
+# GPS fix
 PRODUCT_PACKAGES += \
-    libdmitry \
+    libdmitry
+
+# Product specific Packages
+PRODUCT_PACKAGES += \
     libsecril-client \
     libsecril-client-sap \
+    SamsungServiceMode \
+    tinyplay
+
+# RIL
+PRODUCT_PACKAGES += \
+    libsamsung_symbols \
+    libsecril-shim
 
 # Sensors
 PRODUCT_PACKAGES += \
@@ -88,8 +102,7 @@ PRODUCT_COPY_FILES += \
     $(NFCEE_ACCESS_PATH):system/etc/nfcee_access.xml
 
 PRODUCT_PACKAGES += \
-    com.android.nfc_extras \
-    Stk
+    com.android.nfc_extras
 
 # Samsung symbols
 PRODUCT_PACKAGES += \
@@ -100,7 +113,6 @@ PRODUCT_PACKAGES += \
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.ril_class=SamsungExynos4RIL \
-    mobiledata.interfaces=pdp0,gprs,ppp0,rmnet0,rmnet1 \
     ro.telephony.call_ring.multiple=false \
     ro.telephony.call_ring.delay=3000
 

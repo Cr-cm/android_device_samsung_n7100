@@ -19,13 +19,20 @@
 
 -include device/samsung/smdk4412-common/BoardCommonConfig.mk
 
+# Wifi
+WIFI_DRIVER_MODULE_PATH :=
+
+# Bionic
+MALLOC_SVELTE := true
+TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
+LIBART_IMG_BASE := 0x30000000
+
 # RIL
 BOARD_PROVIDES_LIBRIL := true
 BOARD_MODEM_TYPE := xmm6262
-BOARD_RIL_CLASS := ../../../hardware/samsung/ril
-TARGET_SPECIFIC_HEADER_PATH := device/samsung/n7100/include
+TARGET_SPECIFIC_HEADER_PATH += device/samsung/i9300/include
 BOARD_GLOBAL_CFLAGS += -DDISABLE_ASHMEM_TRACKING
-TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
+BOARD_RIL_CLASS := ../../../device/samsung/i9300/ril
 
 # Graphics
 TARGET_REQUIRES_SYNCHRONOUS_SETSURFACE := true
@@ -43,9 +50,6 @@ TARGET_OTA_ASSERT_DEVICE := t03g,n7100,GT-N7100
 # inherit from the proprietary version
 -include vendor/samsung/n7100/BoardConfigVendor.mk
 
-# External apps on SD
-TARGET_EXTERNAL_APPS = sdcard1
-
 # Recovery
 TARGET_RECOVERY_FSTAB := device/samsung/n7100/rootdir/fstab.smdk4x12
 TARGET_USERIMAGES_USE_F2FS := true
@@ -53,6 +57,9 @@ RECOVERY_FSTAB_VERSION := 2
 
 # Compatibility with pre-kitkat Sensor HALs
 SENSORS_NEED_SETRATE_ON_ENABLE := true
+
+# PowerHAL
+TARGET_POWERHAL_VARIANT := pegasusq
 
 # Selinux
 BOARD_SEPOLICY_DIRS += \
