@@ -93,7 +93,9 @@ PRODUCT_PACKAGES += \
 
 # Samsung symbols
 PRODUCT_PACKAGES += \
-    libsamsung_symbols
+    libsamsung_symbols \
+    libsecril-shim \
+    tinyplay
 
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
