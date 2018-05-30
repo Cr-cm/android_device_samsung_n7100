@@ -99,10 +99,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     com.android.nfc_extras
 
-# Samsung symbols
+# Ril haxx
 PRODUCT_PACKAGES += \
-    libsamsung_symbols \
-    libsecril-shim \
+    dmitry-ril \
+    libdmitrygr_helper \
     tinyplay
 
 # RIL
