@@ -59,11 +59,20 @@ on post-fs-data
 on boot
 
 # cbd
-service cpboot-daemon /system/bin/cbd -d -p 10
+service cpboot-daemon /sbin/cbd -d -p 10
     class main
     user root
-    group radio cache inet misc audio sdcard_rw log
+    group radio cache inet misc audio sdcard_rw log sdcard_r shell
     seclabel u:r:cpboot-daemon:s0
+
+# rild
+service ril-daemon /system/bin/rild
+    class main
+    socket rild stream 660 root radio
+    socket rild-debug stream 660 radio system
+    user root
+    group radio cache inet misc audio sdcard_rw sdcard_r
+    onrestart restart cpboot-daemon
 
 # Start GPS daemon
 service gpsd /system/bin/gpsd -c /system/etc/gps.xml
