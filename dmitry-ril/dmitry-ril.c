@@ -24,6 +24,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <inttypes.h>
+#include <cutils/compiler.h>
 
 #define REAL_RIL_NAME				"/system/lib/libsec-ril.so"
 
@@ -109,7 +110,7 @@ const RIL_RadioFunctions* RIL_Init(const struct RIL_Env *env, int argc, char **a
 	for (i = 0; i < argc; i++)
 		RLOGD("  argv[%2d] = '%s'\n", i, argv[i]);
 		
-	Patch RIL memory
+	//Patch RIL memory
 	patchMem(realRilLibHandle);
 
 	//try to init the real ril
