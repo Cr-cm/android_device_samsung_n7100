@@ -70,11 +70,6 @@ PRODUCT_PACKAGES += \
     SamsungServiceMode \
     tinyplay
 
-# RIL
-PRODUCT_PACKAGES += \
-    libsamsung_symbols \
-    libsecril-shim
-
 # Sensors
 PRODUCT_PACKAGES += \
     sensors.smdk4x12
