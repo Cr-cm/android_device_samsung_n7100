@@ -82,13 +82,6 @@
     extern void _ZN7android13SensorManager16createEventQueueENS_7String8Ei(void **retVal, void *sensorMgr, void **str8P, int mode);
 
 
-//Moar hax
-    ssize_t _ZN7android13SensorManager13getSensorListEPPKPKNS_6SensorE(void* thiz, void* list);
-
-    ssize_t _ZNK7android13SensorManager13getSensorListEPPKPKNS_6SensorE(void* thiz, void* list) {
-        return _ZN7android13SensorManager13getSensorListEPPKPKNS_6SensorE(thiz, list);
-    }
-
 //data exports we must provide for gps library to be happy
 
     /*
@@ -144,13 +137,13 @@
  *           in a package name as a "string16" to the consrtuctor. Since this
  *           lib only services GPS library, it is easy for us to just do that
  *           and this provide the constructor that the GPS library wants.
- *           The package name we use if "gps.default". Why not?
+ *           The package name we use if "gps.manta". Why not?
  */
 void _ZN7android13SensorManagerC1Ev(void *sensorMgr)
 {
     void *string;
 
-    _ZN7android8String16C1EPKc(&string, "gps.default");
+    _ZN7android8String16C1EPKc(&string, "gps.universal5410");
     _ZN7android13SensorManagerC1ERKNS_8String16E(sensorMgr, &string);
     _ZN7android8String16D1Ev(&string);
 }
@@ -170,6 +163,17 @@ void _ZN7android13SensorManager16createEventQueueEv(void **retVal, void *sensorM
     _ZN7android7String8C1EPKc(&string, "");
     _ZN7android13SensorManager16createEventQueueENS_7String8Ei(retVal, sensorMgr, &string, 0);
     _ZN7android7String8D1Ev(&string);
+}
+
+
+/*
+ * FUNCTION: android::SensorManager::getSensorList(Sensor const* const** list)
+ * USE:      Get a list of sensors?
+ * NOTES:    It looks like this function was renamed in N. Stub out to the correct call.
+ */
+ssize_t _ZNK7android13SensorManager13getSensorListEPPKPKNS_6SensorE(void* thiz, void* list)
+{
+    return _ZN7android13SensorManager13getSensorListEPPKPKNS_6SensorE(thiz, list);
 }
 
 /*
@@ -195,8 +199,10 @@ void *CRYPTO_malloc(uint32_t sz, const char *file, uint32_t line)
  */
 void libEvtLoading(void)
 {
-    ALOGI("Nexus 10 GPS interposition library loaded. Your GPS should work in M now.");
+    ALOGI("universal5410 GPS interposition library loaded. Your GPS should work in M now.");
 }
+
+long (*SSL_CTX_ctrl)(void *ctx, int cmd, long larg, void *parg);
 
 /*
  * FUNCTION: libEvtUnloading()
@@ -205,7 +211,7 @@ void libEvtLoading(void)
  */
 void libEvtUnloading(void)
 {
-    ALOGI("Nexus 10 GPS interposition library unloading. Goodbye...");
+    ALOGI("universal5410 GPS interposition library unloading. Goodbye...");
     if (_ZN7android9SingletonINS_13SensorManagerEE9sInstanceE) {
         //if an instance stil exists, free it by calling the destructor, just to be throrough
         _ZN7android13SensorManagerD1Ev(_ZN7android9SingletonINS_13SensorManagerEE9sInstanceE);
