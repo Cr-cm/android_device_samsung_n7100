@@ -35,6 +35,13 @@ on init
     chown system system /sys/devices/system/cpu/cpufreq/pegasusq/max_cpu_lock
     chown system system /sys/devices/system/cpu/cpufreq/pegasusq/sampling_rate
 
+# GPS
+service gps-daemon /system/bin/sh /system/bin/gps_daemon.sh
+    class main
+    user gps
+    group system inet net_raw
+    ioprio be 0
+
 on post-fs-data
     chown radio system /sys/devices/platform/samsung-pd.5/s3c-fimc.2/range_mode
     chmod 0660 /sys/devices/platform/samsung-pd.5/s3c-fimc.2/range_mode
@@ -63,11 +70,3 @@ service cpboot-daemon /sbin/cbd -d -p 10
     user root
     group radio cache inet misc audio sdcard_rw log
     seclabel u:r:cpboot-daemon:s0
-
-# Start GPS daemon
-service gpsd /system/bin/gpsd -c /system/etc/gps.xml
-    class main
-    user gps
-    socket gps seqpacket 0660 gps system
-    seclabel u:r:gpsd:s0
-    ioprio be 0
