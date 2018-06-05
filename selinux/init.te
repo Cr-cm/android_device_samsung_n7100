@@ -10,4 +10,5 @@ allow init sysfs_gps:file rw_file_perms;
 
 allow init rild:process noatsecure;
 
+domain_trans(init, rootfs, gpsd)
 domain_trans(init, rootfs, cpboot-daemon)
