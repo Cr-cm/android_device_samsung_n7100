@@ -311,7 +311,7 @@
     <bool name="config_dreamsEnabledByDefault">false</bool>
 
     <!-- Enable doze powersaving -->
-    <bool name="config_enableAutoPowerModes">true</bool>
+    <!-- bool name="config_enableAutoPowerModes">true</bool-->
 
     <!-- The RadioAccessFamilies supported by the device.
          Empty is viewed as "all".  Only used on devices which
