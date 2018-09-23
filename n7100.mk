@@ -41,7 +41,8 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    power.smdk4x12
+    power.smdk4x12 \
+    android.hardware.power@1.0-impl
 
 # f2fs
 PRODUCT_PACKAGES += \
