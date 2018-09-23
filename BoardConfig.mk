@@ -39,7 +39,8 @@ BOARD_RIL_CLASS := ../../../device/samsung/n7100/ril
 
 # Shims
 TARGET_LD_SHIM_LIBS := \
-    /system/lib/libsec-ril.so|/system/lib/libdmitry.so
+    /system/lib/libsec-ril.so|/system/lib/libdmitry.so \
+    /system/lib/libc.so|/system/lib/libc-shim.so
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/n7100/bluetooth

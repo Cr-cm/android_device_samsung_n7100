@@ -106,6 +106,10 @@ PRODUCT_PACKAGES += \
     libdmitrygr_helper \
     tinyplay
 
+# Bionic
+PRODUCT_PACKAGES += \
+    libc-shim
+
 # Media hax
 PRODUCT_PACKAGES += \
     libstagefright_shim
