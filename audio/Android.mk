@@ -28,6 +28,6 @@ LOCAL_C_INCLUDES += \
 	$(call include-path-for, audio-utils) \
 	$(call include-path-for, audio-effects)
 
-LOCAL_SHARED_LIBRARIES := liblog libcutils libtinyalsa libaudioutils libdl libexpat
+LOCAL_SHARED_LIBRARIES := liblog libcutils libtinyalsa libaudioutils libdl libexpat liblog
 
 include $(BUILD_SHARED_LIBRARY)

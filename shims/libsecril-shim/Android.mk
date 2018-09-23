@@ -14,6 +14,7 @@ LOCAL_SHARED_LIBRARIES := \
 
 LOCAL_CFLAGS := -Wall -Werror
 
-LOCAL_MODULE := libsecril-shim
+#LOCAL_MODULE := libsecril-shim
+LOCAL_MODULE := dmitry-ril
 
 include $(BUILD_SHARED_LIBRARY)

@@ -41,8 +41,7 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    power.smdk4x12 \
-    android.hardware.power@1.0-impl
+    power.smdk4x12
 
 # f2fs
 PRODUCT_PACKAGES += \
@@ -127,4 +126,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     net.tethering.noprovisioning=true
 
+$(call inherit-product, device/samsung/n7100/system_prop.mk)
+
 $(call inherit-product-if-exists, vendor/samsung/n7100/n7100-vendor.mk)
+
