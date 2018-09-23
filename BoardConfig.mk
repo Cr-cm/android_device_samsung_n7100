@@ -22,6 +22,9 @@
 # Wifi
 WIFI_DRIVER_MODULE_PATH :=
 
+# Graphics
+TARGET_REQUIRES_SYNCHRONOUS_SETSURFACE := false
+
 # Bionic
 MALLOC_SVELTE := true
 TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
@@ -34,8 +37,9 @@ TARGET_SPECIFIC_HEADER_PATH += device/samsung/n7100/include
 BOARD_GLOBAL_CFLAGS += -DDISABLE_ASHMEM_TRACKING
 BOARD_RIL_CLASS := ../../../device/samsung/n7100/ril
 
-# Graphics
-TARGET_REQUIRES_SYNCHRONOUS_SETSURFACE := true
+# Shims
+TARGET_LD_SHIM_LIBS := \
+    /system/lib/libsec-ril.so|/system/lib/libdmitry.so
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/n7100/bluetooth

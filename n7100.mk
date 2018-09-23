@@ -106,6 +106,13 @@ PRODUCT_PACKAGES += \
     libdmitrygr_helper \
     tinyplay
 
+# Media hax
+PRODUCT_PACKAGES += \
+    libstagefright_shim
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/mediaserver.rc:system/etc/init/mediaserver.rc
+
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.ril_class=SamsungExynos4RIL \
