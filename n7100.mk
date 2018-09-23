@@ -72,7 +72,8 @@ PRODUCT_PACKAGES += \
 
 # Sensors
 PRODUCT_PACKAGES += \
-    sensors.smdk4x12
+    sensors.smdk4x12 \
+    android.hardware.sensors@1.0-impl
 
 # NFC
 PRODUCT_PACKAGES += \
