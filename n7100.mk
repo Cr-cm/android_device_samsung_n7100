@@ -60,8 +60,8 @@ PRODUCT_PACKAGES += \
     SamsungServiceMode
 
 # GPS fix
-PRODUCT_PACKAGES += \
-    libdmitry
+#PRODUCT_PACKAGES += \
+#    libdmitry
 
 # Product specific Packages
 PRODUCT_PACKAGES += \
